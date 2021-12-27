@@ -15,7 +15,7 @@ TextureAtlas::~TextureAtlas(){
     Engine::DeleteTexture(texture);
 }
 
-SDL_Texture* TextureAtlas::GetTexture(){
+SDL_Texture* TextureAtlas::GetTexture() const {
     return texture;
 }
 
@@ -23,8 +23,9 @@ void TextureAtlas::AddTileDescriptor(int tile, SDL_Rect bounds){
     tileDescriptors[tile] = bounds;
 }
 
-SDL_Rect TextureAtlas::GetTileDescriptor(int tile){
-    return tileDescriptors[tile];
+SDL_Rect TextureAtlas::GetTileDescriptor(int tile) const {
+    SDL_Rect r = tileDescriptors.find(tile)->second;
+    return r;
 }
 
 

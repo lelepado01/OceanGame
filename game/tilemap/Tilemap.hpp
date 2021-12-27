@@ -14,30 +14,14 @@
 #include "../../engine/Time.hpp"
 #include "../../physics/Vector2f.hpp"
 #include "TextureAtlas.hpp"
-
-enum TileName {
-    WATER = 0,
-    SAND,
-    GROUND,
-};
-
-struct Tile {
-    TileName name;
-    int lightLevel;
-};
+#include "Chunk.hpp"
 
 class Tilemap {
 private:
-    static const int TileSize = 24;
-    
-    int tileNumberX = (int)ceil(2*Engine::WINDOW_WIDTH / TileSize) + 2;
-    int tileNumberY = (int)ceil(2*Engine::WINDOW_HEIGHT / TileSize) + 2;
-
-    
     Vector2f mapOffset;
     TextureAtlas textureAtlas;
     
-    Tile tiles[100][100];
+    std::vector<Chunk> chunks = std::vector<Chunk>();
     
 private:
     TileName getTileType(int x, int y);

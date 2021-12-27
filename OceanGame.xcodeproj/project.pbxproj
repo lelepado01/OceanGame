@@ -37,6 +37,7 @@
 		B63828B02776179E001C567F /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B63828AD2776179E001C567F /* libSDL2_image-2.0.0.dylib */; };
 		B63828B12776179E001C567F /* libSDL2_image-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = B63828AD2776179E001C567F /* libSDL2_image-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B6B07E7A27779E940067BD7F /* UiTextWithValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6B07E7827779E940067BD7F /* UiTextWithValue.cpp */; };
+		B6B8A9F82779FF8300C1D6F6 /* Chunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6B8A9F62779FF8300C1D6F6 /* Chunk.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +115,8 @@
 		B63828B2277617FC001C567F /* OceanGame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OceanGame.entitlements; sourceTree = "<group>"; };
 		B6B07E7827779E940067BD7F /* UiTextWithValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UiTextWithValue.cpp; sourceTree = "<group>"; };
 		B6B07E7927779E940067BD7F /* UiTextWithValue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UiTextWithValue.hpp; sourceTree = "<group>"; };
+		B6B8A9F62779FF8300C1D6F6 /* Chunk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Chunk.cpp; sourceTree = "<group>"; };
+		B6B8A9F72779FF8300C1D6F6 /* Chunk.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Chunk.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 				B60FEBE72778F4D8001646D9 /* Tilemap.hpp */,
 				B60FEBEA277904E0001646D9 /* TextureAtlas.cpp */,
 				B60FEBEB277904E0001646D9 /* TextureAtlas.hpp */,
+				B6B8A9F62779FF8300C1D6F6 /* Chunk.cpp */,
+				B6B8A9F72779FF8300C1D6F6 /* Chunk.hpp */,
 			);
 			path = tilemap;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B638288C277616A8001C567F /* Checkbox.cpp in Sources */,
+				B6B8A9F82779FF8300C1D6F6 /* Chunk.cpp in Sources */,
 				B6382893277616A8001C567F /* Vector3f.cpp in Sources */,
 				B638288E277616A8001C567F /* UiText.cpp in Sources */,
 				B60FEBEC277904E0001646D9 /* TextureAtlas.cpp in Sources */,

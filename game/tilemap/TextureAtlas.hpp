@@ -28,9 +28,9 @@ public:
     ~TextureAtlas();
     
     void AddTileDescriptor(int tile, SDL_Rect bounds);
-    SDL_Rect GetTileDescriptor(int tile);
+    SDL_Rect GetTileDescriptor(int tile) const;
     
-    SDL_Texture* GetTexture();
+    SDL_Texture* GetTexture() const;
 };
 
 #endif /* TextureAtlas_hpp */

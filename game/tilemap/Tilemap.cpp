@@ -13,27 +13,10 @@ Tilemap::Tilemap()
     textureAtlas.AddTileDescriptor(WATER, SDL_Rect{16,16,16,16});
     textureAtlas.AddTileDescriptor(SAND, SDL_Rect{0, 16, 16,16});
     textureAtlas.AddTileDescriptor(GROUND, SDL_Rect{10 * 16, 1 * 16, 16,16});
-
-    for (int x = 0; x < 100; x++) {
-        for (int y = 0; y < 100; y++) {
-            tiles[x][y] = Tile{(TileName)(rand() % 3), 10}; 
-        }
-    }
     
 }
 
 Tilemap::~Tilemap(){}
-
-
-TileName Tilemap::getTileType(int x, int y){
-    if (x < 0 || x > 100 || y < 0 || y > 100){
-        return TileName::GROUND;
-    }
-        
-    return tiles[x][y].name;
-}
-
-
 
 
 void Tilemap::Update(){
@@ -57,18 +40,9 @@ void Tilemap::Update(){
 
 void Tilemap::Draw(){
     
-    for (int x = 0; x < tileNumberX; x++) {
-        for (int y = 0; y < tileNumberY; y++) {
-            
-            SDL_Rect tileBounds = textureAtlas.GetTileDescriptor(getTileType(x, y));
-            SDL_Rect tilePos = SDL_Rect{x * TileSize - (int)mapOffset.x, y * TileSize - (int)mapOffset.y, TileSize, TileSize};
-            
-            Engine::SetTextureColor(textureAtlas.GetTexture(),
-                                    255-255*y / tileNumberY,
-                                    255-255*y / tileNumberY,
-                                    255-255*y / tileNumberY);
-            
-            Engine::RenderTexture(textureAtlas.GetTexture(), tileBounds, tilePos);
+    for (int i = 0; i < chunks.size(); i++) {
+        if (chunks[i].InWindow(mapOffset.x, mapOffset.y)){
+            chunks[i].Draw(textureAtlas, mapOffset);
         }
     }
     
