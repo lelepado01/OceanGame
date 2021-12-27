@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B60FEBE82778F4D8001646D9 /* Tilemap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B60FEBE62778F4D8001646D9 /* Tilemap.cpp */; };
+		B60FEBEC277904E0001646D9 /* TextureAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B60FEBEA277904E0001646D9 /* TextureAtlas.cpp */; };
+		B638288C277616A8001C567F /* Checkbox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B638286D277616A8001C567F /* Checkbox.cpp */; };
+		B638288D277616A8001C567F /* FloatSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6382870277616A8001C567F /* FloatSlider.cpp */; };
+		B638288E277616A8001C567F /* UiText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6382871277616A8001C567F /* UiText.cpp */; };
+		B638288F277616A8001C567F /* Slider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6382875277616A8001C567F /* Slider.cpp */; };
+		B6382890277616A8001C567F /* IntSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6382876277616A8001C567F /* IntSlider.cpp */; };
+		B6382891277616A8001C567F /* Gui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6382878277616A8001C567F /* Gui.cpp */; };
+		B6382892277616A8001C567F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B638287A277616A8001C567F /* main.cpp */; };
+		B6382893277616A8001C567F /* Vector3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B638287E277616A8001C567F /* Vector3f.cpp */; };
+		B6382894277616A8001C567F /* Vector2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B638287F277616A8001C567F /* Vector2f.cpp */; };
+		B6382895277616A8001C567F /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B638288A277616A8001C567F /* Engine.cpp */; };
+		B6382896277616A8001C567F /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B638288B277616A8001C567F /* Time.cpp */; };
+		B638289B27761792001C567F /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B638289927761792001C567F /* libSDL2_ttf-2.0.0.dylib */; };
+		B638289C27761792001C567F /* libSDL2_ttf-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = B638289927761792001C567F /* libSDL2_ttf-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B638289D27761792001C567F /* libSDL2_ttf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B638289A27761792001C567F /* libSDL2_ttf.dylib */; };
+		B638289E27761792001C567F /* libSDL2_ttf.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = B638289A27761792001C567F /* libSDL2_ttf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B63828A227761794001C567F /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B63828A027761794001C567F /* libSDL2-2.0.0.dylib */; };
+		B63828A327761794001C567F /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = B63828A027761794001C567F /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B63828A427761794001C567F /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B63828A127761794001C567F /* libSDL2.dylib */; };
+		B63828A527761794001C567F /* libSDL2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = B63828A127761794001C567F /* libSDL2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B63828A827761796001C567F /* libSDL2_gfx-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B63828A627761796001C567F /* libSDL2_gfx-1.0.0.dylib */; };
+		B63828A927761796001C567F /* libSDL2_gfx-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = B63828A627761796001C567F /* libSDL2_gfx-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B63828AA27761796001C567F /* libSDL2_gfx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B63828A727761796001C567F /* libSDL2_gfx.dylib */; };
+		B63828AB27761796001C567F /* libSDL2_gfx.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = B63828A727761796001C567F /* libSDL2_gfx.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B63828AE2776179E001C567F /* libSDL2_image.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B63828AC2776179E001C567F /* libSDL2_image.dylib */; };
+		B63828AF2776179E001C567F /* libSDL2_image.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = B63828AC2776179E001C567F /* libSDL2_image.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B63828B02776179E001C567F /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B63828AD2776179E001C567F /* libSDL2_image-2.0.0.dylib */; };
+		B63828B12776179E001C567F /* libSDL2_image-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = B63828AD2776179E001C567F /* libSDL2_image-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B6B07E7A27779E940067BD7F /* UiTextWithValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6B07E7827779E940067BD7F /* UiTextWithValue.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B638285E27761687001C567F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		B638289F27761792001C567F /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B63828A327761794001C567F /* libSDL2-2.0.0.dylib in Embed Libraries */,
+				B638289E27761792001C567F /* libSDL2_ttf.dylib in Embed Libraries */,
+				B63828A927761796001C567F /* libSDL2_gfx-1.0.0.dylib in Embed Libraries */,
+				B638289C27761792001C567F /* libSDL2_ttf-2.0.0.dylib in Embed Libraries */,
+				B63828B12776179E001C567F /* libSDL2_image-2.0.0.dylib in Embed Libraries */,
+				B63828A527761794001C567F /* libSDL2.dylib in Embed Libraries */,
+				B63828AB27761796001C567F /* libSDL2_gfx.dylib in Embed Libraries */,
+				B63828AF2776179E001C567F /* libSDL2_image.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B60FEBE62778F4D8001646D9 /* Tilemap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tilemap.cpp; sourceTree = "<group>"; };
+		B60FEBE72778F4D8001646D9 /* Tilemap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tilemap.hpp; sourceTree = "<group>"; };
+		B60FEBE92778F74E001646D9 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
+		B60FEBEA277904E0001646D9 /* TextureAtlas.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureAtlas.cpp; sourceTree = "<group>"; };
+		B60FEBEB277904E0001646D9 /* TextureAtlas.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureAtlas.hpp; sourceTree = "<group>"; };
+		B638286027761687001C567F /* OceanGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OceanGame; sourceTree = BUILT_PRODUCTS_DIR; };
+		B638286B277616A8001C567F /* Gui.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Gui.hpp; sourceTree = "<group>"; };
+		B638286D277616A8001C567F /* Checkbox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Checkbox.cpp; sourceTree = "<group>"; };
+		B638286E277616A8001C567F /* Slider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Slider.hpp; sourceTree = "<group>"; };
+		B638286F277616A8001C567F /* IntSlider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IntSlider.hpp; sourceTree = "<group>"; };
+		B6382870277616A8001C567F /* FloatSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FloatSlider.cpp; sourceTree = "<group>"; };
+		B6382871277616A8001C567F /* UiText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UiText.cpp; sourceTree = "<group>"; };
+		B6382872277616A8001C567F /* UiComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UiComponent.hpp; sourceTree = "<group>"; };
+		B6382873277616A8001C567F /* UiText.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UiText.hpp; sourceTree = "<group>"; };
+		B6382874277616A8001C567F /* Checkbox.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Checkbox.hpp; sourceTree = "<group>"; };
+		B6382875277616A8001C567F /* Slider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Slider.cpp; sourceTree = "<group>"; };
+		B6382876277616A8001C567F /* IntSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntSlider.cpp; sourceTree = "<group>"; };
+		B6382877277616A8001C567F /* FloatSlider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FloatSlider.hpp; sourceTree = "<group>"; };
+		B6382878277616A8001C567F /* Gui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gui.cpp; sourceTree = "<group>"; };
+		B6382879277616A8001C567F /* Widget.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Widget.hpp; sourceTree = "<group>"; };
+		B638287A277616A8001C567F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B638287C277616A8001C567F /* Vector3f.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3f.hpp; sourceTree = "<group>"; };
+		B638287D277616A8001C567F /* Vector2f.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector2f.hpp; sourceTree = "<group>"; };
+		B638287E277616A8001C567F /* Vector3f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3f.cpp; sourceTree = "<group>"; };
+		B638287F277616A8001C567F /* Vector2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2f.cpp; sourceTree = "<group>"; };
+		B6382880277616A8001C567F /* MathCommon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MathCommon.hpp; sourceTree = "<group>"; };
+		B6382882277616A8001C567F /* font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = font.ttf; sourceTree = "<group>"; };
+		B6382885277616A8001C567F /* Engine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Engine.hpp; sourceTree = "<group>"; };
+		B6382886277616A8001C567F /* Time.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Time.hpp; sourceTree = "<group>"; };
+		B6382888277616A8001C567F /* FastNoiseLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastNoiseLite.h; sourceTree = "<group>"; };
+		B6382889277616A8001C567F /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
+		B638288A277616A8001C567F /* Engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Engine.cpp; sourceTree = "<group>"; };
+		B638288B277616A8001C567F /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Time.cpp; sourceTree = "<group>"; };
+		B638289927761792001C567F /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2_ttf/2.0.15/lib/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
+		B638289A27761792001C567F /* libSDL2_ttf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2_ttf.dylib; path = ../../../../../../../usr/local/Cellar/sdl2_ttf/2.0.15/lib/libSDL2_ttf.dylib; sourceTree = "<group>"; };
+		B63828A027761794001C567F /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2/2.0.14_1/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		B63828A127761794001C567F /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../../../usr/local/Cellar/sdl2/2.0.14_1/lib/libSDL2.dylib; sourceTree = "<group>"; };
+		B63828A627761796001C567F /* libSDL2_gfx-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_gfx-1.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2_gfx/1.0.4/lib/libSDL2_gfx-1.0.0.dylib"; sourceTree = "<group>"; };
+		B63828A727761796001C567F /* libSDL2_gfx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2_gfx.dylib; path = ../../../../../../../usr/local/Cellar/sdl2_gfx/1.0.4/lib/libSDL2_gfx.dylib; sourceTree = "<group>"; };
+		B63828AC2776179E001C567F /* libSDL2_image.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2_image.dylib; path = ../../../../../../../usr/local/Cellar/sdl2_image/2.0.5/lib/libSDL2_image.dylib; sourceTree = "<group>"; };
+		B63828AD2776179E001C567F /* libSDL2_image-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_image-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2_image/2.0.5/lib/libSDL2_image-2.0.0.dylib"; sourceTree = "<group>"; };
+		B63828B2277617FC001C567F /* OceanGame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OceanGame.entitlements; sourceTree = "<group>"; };
+		B6B07E7827779E940067BD7F /* UiTextWithValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UiTextWithValue.cpp; sourceTree = "<group>"; };
+		B6B07E7927779E940067BD7F /* UiTextWithValue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UiTextWithValue.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B638285D27761687001C567F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B63828A227761794001C567F /* libSDL2-2.0.0.dylib in Frameworks */,
+				B638289D27761792001C567F /* libSDL2_ttf.dylib in Frameworks */,
+				B63828A827761796001C567F /* libSDL2_gfx-1.0.0.dylib in Frameworks */,
+				B638289B27761792001C567F /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
+				B63828B02776179E001C567F /* libSDL2_image-2.0.0.dylib in Frameworks */,
+				B63828A427761794001C567F /* libSDL2.dylib in Frameworks */,
+				B63828AA27761796001C567F /* libSDL2_gfx.dylib in Frameworks */,
+				B63828AE2776179E001C567F /* libSDL2_image.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B60FEBE42778F4BB001646D9 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				B60FEBE52778F4C4001646D9 /* tilemap */,
+			);
+			path = game;
+			sourceTree = "<group>";
+		};
+		B60FEBE52778F4C4001646D9 /* tilemap */ = {
+			isa = PBXGroup;
+			children = (
+				B60FEBE62778F4D8001646D9 /* Tilemap.cpp */,
+				B60FEBE72778F4D8001646D9 /* Tilemap.hpp */,
+				B60FEBEA277904E0001646D9 /* TextureAtlas.cpp */,
+				B60FEBEB277904E0001646D9 /* TextureAtlas.hpp */,
+			);
+			path = tilemap;
+			sourceTree = "<group>";
+		};
+		B638285727761687001C567F = {
+			isa = PBXGroup;
+			children = (
+				B63828B2277617FC001C567F /* OceanGame.entitlements */,
+				B6382881277616A8001C567F /* assets */,
+				B6382884277616A8001C567F /* engine */,
+				B638286A277616A8001C567F /* gui */,
+				B638287A277616A8001C567F /* main.cpp */,
+				B60FEBE42778F4BB001646D9 /* game */,
+				B638287B277616A8001C567F /* physics */,
+				B638286127761687001C567F /* Products */,
+				B638289827761792001C567F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B638286127761687001C567F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B638286027761687001C567F /* OceanGame */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B638286A277616A8001C567F /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				B638286B277616A8001C567F /* Gui.hpp */,
+				B6382878277616A8001C567F /* Gui.cpp */,
+				B638286C277616A8001C567F /* components */,
+				B6382879277616A8001C567F /* Widget.hpp */,
+			);
+			path = gui;
+			sourceTree = "<group>";
+		};
+		B638286C277616A8001C567F /* components */ = {
+			isa = PBXGroup;
+			children = (
+				B638286D277616A8001C567F /* Checkbox.cpp */,
+				B638286E277616A8001C567F /* Slider.hpp */,
+				B638286F277616A8001C567F /* IntSlider.hpp */,
+				B6382870277616A8001C567F /* FloatSlider.cpp */,
+				B6382871277616A8001C567F /* UiText.cpp */,
+				B6382872277616A8001C567F /* UiComponent.hpp */,
+				B6382873277616A8001C567F /* UiText.hpp */,
+				B6382874277616A8001C567F /* Checkbox.hpp */,
+				B6382875277616A8001C567F /* Slider.cpp */,
+				B6382876277616A8001C567F /* IntSlider.cpp */,
+				B6382877277616A8001C567F /* FloatSlider.hpp */,
+				B6B07E7827779E940067BD7F /* UiTextWithValue.cpp */,
+				B6B07E7927779E940067BD7F /* UiTextWithValue.hpp */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		B638287B277616A8001C567F /* physics */ = {
+			isa = PBXGroup;
+			children = (
+				B638287C277616A8001C567F /* Vector3f.hpp */,
+				B638287D277616A8001C567F /* Vector2f.hpp */,
+				B638287E277616A8001C567F /* Vector3f.cpp */,
+				B638287F277616A8001C567F /* Vector2f.cpp */,
+				B6382880277616A8001C567F /* MathCommon.hpp */,
+			);
+			path = physics;
+			sourceTree = "<group>";
+		};
+		B6382881277616A8001C567F /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				B60FEBE92778F74E001646D9 /* tileset.png */,
+				B6382882277616A8001C567F /* font.ttf */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		B6382884277616A8001C567F /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				B6382885277616A8001C567F /* Engine.hpp */,
+				B638288A277616A8001C567F /* Engine.cpp */,
+				B6382886277616A8001C567F /* Time.hpp */,
+				B6382887277616A8001C567F /* utils */,
+				B638288B277616A8001C567F /* Time.cpp */,
+			);
+			path = engine;
+			sourceTree = "<group>";
+		};
+		B6382887277616A8001C567F /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B6382888277616A8001C567F /* FastNoiseLite.h */,
+				B6382889277616A8001C567F /* Random.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		B638289827761792001C567F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B63828AD2776179E001C567F /* libSDL2_image-2.0.0.dylib */,
+				B63828AC2776179E001C567F /* libSDL2_image.dylib */,
+				B63828A627761796001C567F /* libSDL2_gfx-1.0.0.dylib */,
+				B63828A727761796001C567F /* libSDL2_gfx.dylib */,
+				B63828A027761794001C567F /* libSDL2-2.0.0.dylib */,
+				B63828A127761794001C567F /* libSDL2.dylib */,
+				B638289927761792001C567F /* libSDL2_ttf-2.0.0.dylib */,
+				B638289A27761792001C567F /* libSDL2_ttf.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B638285F27761687001C567F /* OceanGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B638286727761687001C567F /* Build configuration list for PBXNativeTarget "OceanGame" */;
+			buildPhases = (
+				B638285C27761687001C567F /* Sources */,
+				B638285D27761687001C567F /* Frameworks */,
+				B638285E27761687001C567F /* CopyFiles */,
+				B638289F27761792001C567F /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OceanGame;
+			productName = OceanGame;
+			productReference = B638286027761687001C567F /* OceanGame */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B638285827761687001C567F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					B638285F27761687001C567F = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = B638285B27761687001C567F /* Build configuration list for PBXProject "OceanGame" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B638285727761687001C567F;
+			productRefGroup = B638286127761687001C567F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B638285F27761687001C567F /* OceanGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B638285C27761687001C567F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B638288C277616A8001C567F /* Checkbox.cpp in Sources */,
+				B6382893277616A8001C567F /* Vector3f.cpp in Sources */,
+				B638288E277616A8001C567F /* UiText.cpp in Sources */,
+				B60FEBEC277904E0001646D9 /* TextureAtlas.cpp in Sources */,
+				B638288F277616A8001C567F /* Slider.cpp in Sources */,
+				B6B07E7A27779E940067BD7F /* UiTextWithValue.cpp in Sources */,
+				B6382891277616A8001C567F /* Gui.cpp in Sources */,
+				B6382892277616A8001C567F /* main.cpp in Sources */,
+				B6382896277616A8001C567F /* Time.cpp in Sources */,
+				B6382890277616A8001C567F /* IntSlider.cpp in Sources */,
+				B60FEBE82778F4D8001646D9 /* Tilemap.cpp in Sources */,
+				B638288D277616A8001C567F /* FloatSlider.cpp in Sources */,
+				B6382894277616A8001C567F /* Vector2f.cpp in Sources */,
+				B6382895277616A8001C567F /* Engine.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B638286527761687001C567F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B638286627761687001C567F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B638286827761687001C567F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OceanGame.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7C4DA88BK9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/sdl2/2.0.14_1/include/SDL2,
+					/usr/local/Cellar/sdl2_image/2.0.5/include/SDL2,
+					/usr/local/Cellar/sdl2_gfx/1.0.4/include/SDL2,
+					/usr/local/Cellar/sdl2_ttf/2.0.15/include/SDL2,
+					"/Users/gabrielepadovani/Desktop/asio-1.20.0/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl2/2.0.14_1/lib,
+					/usr/local/Cellar/sdl2_image/2.0.5/lib,
+					/usr/local/Cellar/sdl2_ttf/2.0.15/lib,
+					/usr/local/Cellar/sdl2_gfx/1.0.4/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B638286927761687001C567F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OceanGame.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7C4DA88BK9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/sdl2/2.0.14_1/include/SDL2,
+					/usr/local/Cellar/sdl2_image/2.0.5/include/SDL2,
+					/usr/local/Cellar/sdl2_gfx/1.0.4/include/SDL2,
+					/usr/local/Cellar/sdl2_ttf/2.0.15/include/SDL2,
+					"/Users/gabrielepadovani/Desktop/asio-1.20.0/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl2/2.0.14_1/lib,
+					/usr/local/Cellar/sdl2_image/2.0.5/lib,
+					/usr/local/Cellar/sdl2_ttf/2.0.15/lib,
+					/usr/local/Cellar/sdl2_gfx/1.0.4/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B638285B27761687001C567F /* Build configuration list for PBXProject "OceanGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B638286527761687001C567F /* Debug */,
+				B638286627761687001C567F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B638286727761687001C567F /* Build configuration list for PBXNativeTarget "OceanGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B638286827761687001C567F /* Debug */,
+				B638286927761687001C567F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B638285827761687001C567F /* Project object */;
+}
