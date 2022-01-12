@@ -14,7 +14,7 @@
 #include "../../physics/Vector2f.hpp"
 #include "TextureAtlas.hpp"
 
-enum TileName {
+enum TileName : uint8_t {
     WATER = 0,
     SAND,
     GROUND,
@@ -22,7 +22,7 @@ enum TileName {
 
 struct Tile {
     TileName name;
-    int lightLevel;
+    uint8_t lightLevel;
 };
 
 class Chunk {
@@ -40,26 +40,27 @@ private:
     Tile tiles[TileNumber][TileNumber];
     
 public:
-    Chunk(int x, int y);
+    Chunk(const int x, const int y);
     ~Chunk();
     
     void Draw(const TextureAtlas& textureAtlas, const Vector2f& mapOffset);
     
-    bool InWindow(int offX, int offY);
+    bool InWindow(const int windowStartX, const int windowStartY) const;
     
-    Vector2f GetChunkPosition(); 
-    Vector2f GlobalToRelativeChunkPosition(Vector2f v);
-    Vector2f RelativeToTileCoordinate(Vector2f v);
+    Vector2f GetChunkPosition() const; 
+    Vector2f GlobalToRelativeChunkPosition(const Vector2f& v) const;
+    Vector2f RelativeToTileCoordinate(const Vector2f& v) const;
+    Vector2f TileToGlobalCoordinate(const Vector2f& v) const;
 
-    static Vector2f GlobalToChunkIndexPosition(int x, int y);
+    static Vector2f GlobalToChunkIndexPosition(const int x, const int y);
 
 private:
-    TileName getTileType(int x, int y);
+    TileName getTileType(const int x, const int y) const;
     
-//    Vector2f getStartOfVisibleChunk();
-//    Vector2f getEndOfVisibleChunk();
+    Vector2f getStartOfVisibleChunk(const Vector2f& mapOffset) const;
+    Vector2f getEndOfVisibleChunk(const Vector2f& mapOffset) const;
 
-    bool pointInWindow(int x, int y);
+    bool pointInWindow(const int x, const int y) const;
 };
 
 #endif /* Chunk_hpp */

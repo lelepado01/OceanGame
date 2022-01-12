@@ -7,7 +7,7 @@
 
 #include "Chunk.hpp"
 
-Chunk::Chunk(int x, int y){
+Chunk::Chunk(const int x, const int y){
     chunkPositionX = x;
     chunkPositionY = y;
     
@@ -22,7 +22,7 @@ Chunk::Chunk(int x, int y){
 
 Chunk::~Chunk(){}
 
-TileName Chunk::getTileType(int x, int y){
+TileName Chunk::getTileType(const int x, const int y) const {
     if (x < 0 || x >= TileNumber || y < 0 || y >= TileNumber){
         return TileName::GROUND;
     }
@@ -31,30 +31,39 @@ TileName Chunk::getTileType(int x, int y){
 }
 
 
-void Chunk::Draw(const TextureAtlas& textureAtlas, const Vector2f& mapOffset){
-  
+Vector2f Chunk::getStartOfVisibleChunk(const Vector2f& mapOffset) const {
     Vector2f drawStart(fmax(chunkRectangle.x, mapOffset.x),
                        fmax(chunkRectangle.y, mapOffset.y));
     drawStart = RelativeToTileCoordinate(GlobalToRelativeChunkPosition(drawStart));
     
+    if ( drawStart.y > 0) drawStart.y -= 1;
+    
+    return drawStart;
+}
+
+
+Vector2f Chunk::getEndOfVisibleChunk(const Vector2f& mapOffset) const {
     Vector2f endOfWindow(mapOffset.x + Engine::GetWindowWidth(),
                          mapOffset.y + Engine::GetWindowHeight());
     
     Vector2f drawEnd(fmin(chunkRectangle.x + ChunkSize, endOfWindow.x),
                      fmin(chunkRectangle.y + ChunkSize, endOfWindow.y));
-    drawEnd = RelativeToTileCoordinate(GlobalToRelativeChunkPosition(drawEnd));
-    
-    if ( drawStart.y > 0) drawStart.y -= 1;
-    if ( drawStart.x > 0) drawStart.x -= 1;
+    return RelativeToTileCoordinate(GlobalToRelativeChunkPosition(drawEnd));
+}
 
+void Chunk::Draw(const TextureAtlas& textureAtlas, const Vector2f& mapOffset){
+  
+    Vector2f drawStart = getStartOfVisibleChunk(mapOffset);
+    Vector2f drawEnd = getEndOfVisibleChunk(mapOffset);
+    
     for (int y = drawStart.y; y < drawEnd.y; y++) {
         for (int x = drawStart.x; x < drawEnd.x; x++) {
             
-            int relativePosX = x * TileSize + chunkRectangle.x - (int)mapOffset.x;
-            int relativePosY = y * TileSize + chunkRectangle.y - (int)mapOffset.y;
+            Vector2f relativePos = TileToGlobalCoordinate(Vector2f(x, y));
+            relativePos.Sub(mapOffset);
             
             SDL_Rect tileBounds = textureAtlas.GetTileDescriptor(getTileType(x, y));
-            SDL_Rect tilePos = SDL_Rect{relativePosX, relativePosY, TileSize, TileSize};
+            SDL_Rect tilePos = SDL_Rect{(int)relativePos.x, (int)relativePos.y, TileSize, TileSize};
             
             Engine::RenderTexture(textureAtlas.GetTexture(), tileBounds, tilePos);
         }
@@ -66,27 +75,29 @@ void Chunk::Draw(const TextureAtlas& textureAtlas, const Vector2f& mapOffset){
     }
 }
 
-Vector2f Chunk::GetChunkPosition(){
+Vector2f Chunk::GetChunkPosition() const {
     return Vector2f(chunkPositionX, chunkPositionY);
 }
 
-bool Chunk::InWindow(int windowStartX, int windowStartY){
+bool Chunk::InWindow(const int windowStartX, const int windowStartY) const {
     SDL_Rect window {windowStartX, windowStartY, Engine::GetWindowWidth(), Engine::GetWindowHeight()};
     SDL_Rect res;
     return SDL_IntersectRect(&window, &chunkRectangle, &res) == SDL_TRUE;
 }
 
-Vector2f Chunk::GlobalToRelativeChunkPosition(Vector2f v){
-    v.Sub(Vector2f(chunkRectangle.x, chunkRectangle.y));
-    return v;
+Vector2f Chunk::GlobalToRelativeChunkPosition(const Vector2f& v) const {
+    return Vector2f(v.x - chunkRectangle.x, v.y - chunkRectangle.y);
 }
 
-Vector2f Chunk::RelativeToTileCoordinate(Vector2f v){
-    v.Div(TileSize);
-    return v;
+Vector2f Chunk::RelativeToTileCoordinate(const Vector2f& v) const {
+    return Vector2f(v.x / TileSize, v.y / TileSize);
 }
 
-Vector2f Chunk::GlobalToChunkIndexPosition(int x, int y){
+Vector2f Chunk::TileToGlobalCoordinate(const Vector2f &v) const {
+    return Vector2f(v.x * TileSize + chunkRectangle.x, v.y * TileSize + chunkRectangle.y);
+}
+
+Vector2f Chunk::GlobalToChunkIndexPosition(const int x, const int y) {
     Vector2f v(x, y);
     v.x = floor(v.x / ChunkSize);
     v.y = floor(v.y / ChunkSize);
