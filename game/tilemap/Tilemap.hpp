@@ -18,16 +18,21 @@
 
 class Tilemap {
 private:
+    int playerSpeed = 1000;
+    
     Vector2f mapOffset;
+    
     TextureAtlas textureAtlas;
     
     std::vector<Chunk> chunks = std::vector<Chunk>();
     
 private:
-    TileName getTileType(int x, int y);
+    void updateChunkList();
     
-    std::vector<Vector2f> getChunksInWindow();
+    bool chunkListContains(const Vector2f& chunkPos) const;
     bool chunkPositionInWindow(Vector2f pos);
+    
+    TileName getTileType(int x, int y);
     
 public:
     Tilemap();

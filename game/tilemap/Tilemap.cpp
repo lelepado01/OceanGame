@@ -22,36 +22,21 @@ Tilemap::~Tilemap(){}
 
 
 void Tilemap::Update(){
-    
-    int speed = 1000;
-    
+        
     if (Engine::KeyIsPressed(SDLK_w)){
-        mapOffset.Sub(Vector2f(0,speed * Time::DeltaTime()));
+        mapOffset.Sub(Vector2f(0,playerSpeed * Time::DeltaTime()));
     }
     if (Engine::KeyIsPressed(SDLK_s)){
-        mapOffset.Add(Vector2f(0,speed * Time::DeltaTime()));
+        mapOffset.Add(Vector2f(0,playerSpeed * Time::DeltaTime()));
     }
     if (Engine::KeyIsPressed(SDLK_a)){
-        mapOffset.Sub(Vector2f(speed * Time::DeltaTime(),0));
+        mapOffset.Sub(Vector2f(playerSpeed * Time::DeltaTime(),0));
     }
     if (Engine::KeyIsPressed(SDLK_d)){
-        mapOffset.Add(Vector2f(speed * Time::DeltaTime(),0));
+        mapOffset.Add(Vector2f(playerSpeed * Time::DeltaTime(),0));
     }
-    
-    std::vector<Vector2f> chunksInWindow = getChunksInWindow();
-    for (Vector2f chunkPosition : chunksInWindow) {
-        bool contained = false;
-        for (int i = 0; i < chunks.size(); i++) {
-            if (chunks.at(i).GetChunkPosition() == chunkPosition){
-                contained = true;
-                break;
-            }
-        }
-        if (!contained){
-            chunks.push_back(Chunk(chunkPosition.x, chunkPosition.y));
-        }
-    }
-    
+        
+    updateChunkList();
 }
 
 void Tilemap::Draw(){
@@ -64,17 +49,28 @@ void Tilemap::Draw(){
     
 }
 
-
-std::vector<Vector2f> Tilemap::getChunksInWindow(){
-    std::vector<Vector2f> v = std::vector<Vector2f>();
-    
-    Vector2f mapChunkPosition = Chunk::GlobalToChunkIndexPosition(mapOffset.x, mapOffset.y);
-    
-    for (int x = mapChunkPosition.x - 1; x < mapChunkPosition.x+2; x++) {
-        for (int y = mapChunkPosition.y - 1; y < mapChunkPosition.y+2; y++) {
-            v.push_back(Vector2f(x, y));
+bool Tilemap::chunkListContains(const Vector2f &chunkPos) const {
+    bool contained = false;
+    for (int i = 0; i < chunks.size(); i++) {
+        if (chunks.at(i).GetChunkPosition() == chunkPos){
+            contained = true;
+            break;
         }
     }
     
-    return v;
+    return contained;
+}
+
+void Tilemap::updateChunkList() {
+    Vector2f playerChunkPosition = Chunk::GlobalToChunkIndexPosition(mapOffset.x+1, mapOffset.y+1);
+    
+    for (int x = playerChunkPosition.x - 1; x < playerChunkPosition.x+2; x++) {
+        for (int y = playerChunkPosition.y - 1; y < playerChunkPosition.y+2; y++) {
+            Vector2f chunkPosition(x, y);
+            if (!chunkListContains(chunkPosition)){
+                chunks.push_back(Chunk(chunkPosition.x, chunkPosition.y));
+            }
+        }
+    }
+
 }
