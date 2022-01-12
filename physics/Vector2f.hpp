@@ -14,7 +14,7 @@
 class Vector2f {
 public:
     float x, y;
-    
+
     Vector2f();
     Vector2f(const float x, const float y);
     

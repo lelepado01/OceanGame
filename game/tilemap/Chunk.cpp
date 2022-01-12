@@ -8,8 +8,13 @@
 #include "Chunk.hpp"
 
 Chunk::Chunk(int x, int y){
-    offsetX = x;
-    offsetY = y;
+    chunkPositionX = x;
+    chunkPositionY = y;
+    
+    globalChunkPositionX = chunkPositionX * ChunkSize;
+    globalChunkPositionY = chunkPositionY * ChunkSize;
+    
+    chunkRectangle = {globalChunkPositionX, globalChunkPositionY, ChunkSize, ChunkSize};
     
     for (int x = 0; x < TileNumber; x++) {
         for (int y = 0; y < TileNumber; y++) {
@@ -18,12 +23,10 @@ Chunk::Chunk(int x, int y){
     }
 }
 
-Chunk::~Chunk(){
-    
-}
+Chunk::~Chunk(){}
 
 TileName Chunk::getTileType(int x, int y){
-    if (x < 0 || x > TileNumber || y < 0 || y > TileNumber){
+    if (x < 0 || x >= TileNumber || y < 0 || y >= TileNumber){
         return TileName::GROUND;
     }
         
@@ -32,34 +35,38 @@ TileName Chunk::getTileType(int x, int y){
 
 
 void Chunk::Draw(const TextureAtlas& textureAtlas, const Vector2f& mapOffset){
-    for (int x = 0; x < TileNumberX; x++) {
-        for (int y = 0; y < TileNumberY; y++) {
+    for (int x = 0; x < TileNumber; x++) {
+        for (int y = 0; y < TileNumber; y++) {
+            
+            int relativePosX = x * TileSize + globalChunkPositionX - (int)mapOffset.x;
+            int relativePosY = y * TileSize + globalChunkPositionY - (int)mapOffset.y;
             
             SDL_Rect tileBounds = textureAtlas.GetTileDescriptor(getTileType(x, y));
-            SDL_Rect tilePos = SDL_Rect{x * TileSize - (int)mapOffset.x, y * TileSize - (int)mapOffset.y, TileSize, TileSize};
+            SDL_Rect tilePos = SDL_Rect{relativePosX, relativePosY, TileSize, TileSize};
             
             Engine::SetTextureColor(textureAtlas.GetTexture(),
-                                    255-255*y / TileNumberY,
-                                    255-255*y / TileNumberY,
-                                    255-255*y / TileNumberY);
+                                    255-255*y / TileNumber,
+                                    255-255*y / TileNumber,
+                                    255-255*y / TileNumber);
             
             Engine::RenderTexture(textureAtlas.GetTexture(), tileBounds, tilePos);
         }
     }
 }
 
-SDL_Point Chunk::ToChunkPosition(SDL_Point &point){
-    return SDL_Point{point.x / TileSize, point.y / TileSize}; 
-}
-
-bool Chunk::pointInWindow(int x, int y){
-    return offsetX > x && offsetX < x + Engine::WINDOW_WIDTH*2 && offsetY > y && offsetY < y + Engine::WINDOW_HEIGHT*2;
+Vector2f Chunk::GetChunkPosition(){
+    return Vector2f(chunkPositionX, chunkPositionY);
 }
 
 bool Chunk::InWindow(int windowStartX, int windowStartY){
-    return pointInWindow(windowStartX, windowStartY)
-        || pointInWindow(windowStartX + TileNumber * TileSize, windowStartY)
-        || pointInWindow(windowStartX, windowStartY + TileNumber * TileSize)
-        || pointInWindow(windowStartX + TileNumber * TileSize, windowStartY + TileNumber * TileSize);
+    SDL_Rect window {windowStartX, windowStartY, Engine::WINDOW_WIDTH * 2, Engine::WINDOW_HEIGHT * 2};
+    SDL_Rect res;
+    return SDL_IntersectRect(&window, &chunkRectangle, &res) == SDL_TRUE;
+}
 
+Vector2f Chunk::ChunkPositionFromGlobal(int x, int y){
+    Vector2f v(x, y);
+    v.x = floor(v.x / ChunkSize);
+    v.y = floor(v.y / ChunkSize);
+    return  v;
 }

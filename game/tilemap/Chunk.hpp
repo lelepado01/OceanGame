@@ -30,13 +30,22 @@ private:
     static const int TileNumber = 100;
     static const int TileSize = 24;
 
-    inline static int TileNumberX = (int)ceil(2*Engine::WINDOW_WIDTH / TileSize) + 2;
-    inline static int TileNumberY = (int)ceil(2*Engine::WINDOW_HEIGHT / TileSize) + 2;
+//    inline static int TileNumberX = (int)ceil(2*Engine::WINDOW_WIDTH / TileSize) + 2;
+//    inline static int TileNumberY = (int)ceil(2*Engine::WINDOW_HEIGHT / TileSize) + 2;
     
-    int offsetX;
-    int offsetY;
+    int chunkPositionX;
+    int chunkPositionY;
     
+    int globalChunkPositionX;
+    int globalChunkPositionY;
+    
+    SDL_Rect chunkRectangle;
+
+
     Tile tiles[TileNumber][TileNumber]; 
+    
+public:
+    static const int ChunkSize = TileNumber * TileSize;
     
 private:
     TileName getTileType(int x, int y);
@@ -50,7 +59,9 @@ public:
     
     bool InWindow(int offX, int offY);
     
-    static SDL_Point ToChunkPosition(SDL_Point& point); 
+    Vector2f GetChunkPosition(); 
+    
+    static Vector2f ChunkPositionFromGlobal(int x, int y);
 };
 
 #endif /* Chunk_hpp */

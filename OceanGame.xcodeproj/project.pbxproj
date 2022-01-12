@@ -43,12 +43,12 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		B638285E27761687001C567F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B638289F27761792001C567F /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -217,8 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				B638287C277616A8001C567F /* Vector3f.hpp */,
-				B638287D277616A8001C567F /* Vector2f.hpp */,
 				B638287E277616A8001C567F /* Vector3f.cpp */,
+				B638287D277616A8001C567F /* Vector2f.hpp */,
 				B638287F277616A8001C567F /* Vector2f.cpp */,
 				B6382880277616A8001C567F /* MathCommon.hpp */,
 			);
@@ -277,10 +277,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B638286727761687001C567F /* Build configuration list for PBXNativeTarget "OceanGame" */;
 			buildPhases = (
+				B638289F27761792001C567F /* Embed Libraries */,
 				B638285C27761687001C567F /* Sources */,
 				B638285D27761687001C567F /* Frameworks */,
 				B638285E27761687001C567F /* CopyFiles */,
-				B638289F27761792001C567F /* Embed Libraries */,
 			);
 			buildRules = (
 			);

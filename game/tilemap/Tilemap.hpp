@@ -26,6 +26,9 @@ private:
 private:
     TileName getTileType(int x, int y);
     
+    std::vector<Vector2f> getChunksInWindow();
+    bool chunkPositionInWindow(Vector2f pos);
+    
 public:
     Tilemap();
     ~Tilemap(); 
