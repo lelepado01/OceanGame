@@ -19,6 +19,10 @@ int main(int, char**) {
     while (Engine::IsRunning()) {
         Time::Count();
         
+        if (Engine::KeyIsPressed(SDLK_f)){
+            Engine::ToggleFullscreen();
+        }
+        
         Gui::NewFrame();
         
         Engine::HandleEvents();
@@ -31,7 +35,10 @@ int main(int, char**) {
 
         fps = (int)Time::FPS();
         Gui::CreateTextWithValue("FPS: ", &fps);
-        
+        float w = Engine::GetWindowWidth();
+        float h = Engine::GetWindowHeight();
+        Gui::CreateTextWithValue("Width: ", &w);
+        Gui::CreateTextWithValue("Height: ", &h);
         Gui::End();
 
 

@@ -23,6 +23,7 @@ private:
     static SDL_Window* Window;
     static bool running;
     
+    static bool fullscreenMode;
     static bool debugMode;
 
     static TTF_Font* font; 
@@ -47,10 +48,14 @@ public:
     static void Render();
     static void HandleEvents();
     static bool KeyIsPressed(SDL_Keycode key);
+    static void ToggleFullscreen();
     
     inline static bool MouseLeftKeyIsPressed() { return mouseLeftPressed; };
     inline static bool MouseRightKeyIsPressed() { return mouseRightPressed; };
+    
     inline static SDL_Point GetMousePosition() { return SDL_Point{ mousePosition.x * 2, mousePosition.y * 2}; };
+    static int GetWindowWidth();
+    static int GetWindowHeight(); 
     
     inline static bool IsRunning() { return running; };  
     

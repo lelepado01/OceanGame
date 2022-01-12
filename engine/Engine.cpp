@@ -9,6 +9,7 @@
 
 bool Engine::running = true;
 bool Engine::debugMode = false;
+bool Engine::fullscreenMode = false;
 SDL_Window* Engine::Window = nullptr;
 SDL_Renderer* Engine::Renderer = nullptr;
 TTF_Font* Engine::font = nullptr;
@@ -70,7 +71,23 @@ void Engine::CleanupSDL(){
     SDL_Quit();
 }
 
+void Engine::ToggleFullscreen(){
+    fullscreenMode = !fullscreenMode;
+    SDL_SetWindowFullscreen(Window, fullscreenMode ? SDL_WINDOW_FULLSCREEN : 0);
+}
 
+int Engine::GetWindowWidth(){
+    int w;
+    SDL_GetWindowSize(Window, &w, nullptr);
+    return w;
+}
+
+int Engine::GetWindowHeight(){
+    int h;
+    SDL_GetWindowSize(Window, nullptr, &h);
+    return h;
+
+}
 
 SDL_Texture* Engine::LoadTexture(const std::string& file){
     SDL_Texture *texture = IMG_LoadTexture(Renderer, file.c_str());
