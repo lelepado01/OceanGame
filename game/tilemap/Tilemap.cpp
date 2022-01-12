@@ -68,7 +68,7 @@ void Tilemap::Draw(){
 std::vector<Vector2f> Tilemap::getChunksInWindow(){
     std::vector<Vector2f> v = std::vector<Vector2f>();
     
-    Vector2f mapChunkPosition = Chunk::ChunkPositionFromGlobal(mapOffset.x, mapOffset.y);
+    Vector2f mapChunkPosition = Chunk::GlobalToChunkIndexPosition(mapOffset.x, mapOffset.y);
     
     for (int x = mapChunkPosition.x - 1; x < mapChunkPosition.x+2; x++) {
         for (int y = mapChunkPosition.y - 1; y < mapChunkPosition.y+2; y++) {

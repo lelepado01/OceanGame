@@ -79,13 +79,13 @@ void Engine::ToggleFullscreen(){
 int Engine::GetWindowWidth(){
     int w;
     SDL_GetWindowSize(Window, &w, nullptr);
-    return w;
+    return w*2;
 }
 
 int Engine::GetWindowHeight(){
     int h;
     SDL_GetWindowSize(Window, nullptr, &h);
-    return h;
+    return h*2;
 
 }
 
